@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitThis": true,
+    "lib": [
+      "ES2018.AsyncGenerator",
+      "ES2021.Promise",
+      "ESNext.AsyncIterable",
+      "DOM"
+    ]
+  },
+  "include": ["./src/**/*.ts"],
+  "compileOnSave": true,
+  "buildOnSave": true
+}
