@@ -26,7 +26,7 @@ var data1 = {
   backgroundColor: 'blue',
   data: [
     {
-      x: DateTime.now().toISO(),
+      x: DateTime.now().minus({ days: 1 }).toISO(),
       y: 50,
     },
   ],
@@ -37,8 +37,8 @@ var data2 = {
   backgroundColor: 'red',
   data: [
     {
-      x: DateTime.now().plus({days: 10}).toISO(),
-      y: 50,
+      x: DateTime.now().toISO(),
+      y: 100,
     },
   ],
 };
@@ -46,7 +46,8 @@ var data2 = {
 var ctx = (document.getElementById('myChart') as HTMLCanvasElement).getContext(
   '2d'
 );
-new Chart<any>(ctx, {
+
+const instance = new Chart<any>(ctx, {
   type: 'bar',
   data: {
     datasets: [data1, data2],
@@ -54,17 +55,22 @@ new Chart<any>(ctx, {
   options: {
     scales: {
       x: {
-        min: DateTime.now().minus({days: 5}).toISO(),
-        max: DateTime.now().plus({days: 5}).toISO(),
+        min: DateTime.now().minus({ days: 5 }).toISO(),
+        max: DateTime.now().minus({ hours: 2 }).toISO(),
         type: 'time',
         time: {
           unit: 'day',
         },
-        stacked: true,
       },
       y: {
         stacked: true,
+        ticks: {
+          precision: 0,
+        },
       },
     },
   },
 });
+
+console.log("min:", new Date(instance.scales.x.min));
+console.log("max:", new Date(instance.scales.x.max));
