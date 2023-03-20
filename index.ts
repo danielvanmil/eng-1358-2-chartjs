@@ -63,7 +63,6 @@ const instance = new Chart<any>(ctx, {
         },
       },
       y: {
-        stacked: true,
         ticks: {
           precision: 0,
         },
