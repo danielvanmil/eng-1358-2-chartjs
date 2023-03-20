@@ -72,5 +72,5 @@ const instance = new Chart<any>(ctx, {
   },
 });
 
-console.log("min:", new Date(instance.scales.x.min));
-console.log("max:", new Date(instance.scales.x.max));
+console.log('min:', new Date(instance.scales.x.min));
+console.log('max:', new Date(instance.scales.x.max));
